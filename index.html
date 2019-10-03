@@ -5,65 +5,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <title>Rock Paper Scissors Game</title>
 </head>
 
 <body>
-    <h1>Fancy a game, stranger?</h1>
-    <img size=300px height=300px src="https://images.freeimages.com/images/large-previews/336/rock-paper-scissors-1238146.jpg">
-    <p> Remember!
+    <h1 class="center"><u>Fancy a game, stranger?</u></h1>
+    <p class="center introimage"><img size=300px height=300px src="https://images.freeimages.com/images/large-previews/336/rock-paper-scissors-1238146.jpg"></p>
+    <p class="instructions"> Remember!
         <ul>
-            <li>Paper beats Rock</li>
-            <li>Rock beats Scissors</li>
-            <li>Scissors beats Paper</li>
+            <li><b>Paper</b> beats <b>Rock</b></li>
+            <li><b>Rock</b> beats <b>Scissors</b></li>
+            <li><b>Scissors</b> beats <b>Paper</b></li>
         </ul>
     </p>
 
-    <div class="moves">
+    <div class="moves instructions">
         <label>
-            Rock
-        <img src="" class="radio-image">
+        <img src="https://images.freeimages.com/images/large-previews/a62/ching-chong-cha-2-1440527.jpg" class="radio-image">
         <input
         name="move"
         value="rock"
         type="radio"
+        class="hidden"
         checked>
         </label>
 
         <label>
-            Paper
-        <img src="" class="radio-image">
+        <img src="https://images.freeimages.com/images/large-previews/f1f/ching-chong-cha-3-1440520.jpg" class="radio-image">
         <input
         name="move"
         value="paper"
-        type="radio">
+        type="radio"
+        class="hidden">
         </label>
         <label>
-            Scissors
-        <img src="" class="radio-image">
+        <img src="https://images.freeimages.com/images/large-previews/c09/ching-chong-cha-1-1440531.jpg" class="radio-image">
         <input
         name="move"
         value="scissors"
-        type="radio">
+        type="radio"
+        class="hidden">
         </label>
     </div>
 
-    <div>
+    <div class="center">
         <button id="my-button">Play!</button>
     </div>
 
     <div id="win-record" class="hidden">
-        Here is my win loss draw record
-        <p>
-            W||L||D
+        <p class="record">
+            Wins || Losses || Draws <br>
         </p>
-        <p>
-            <span id='wins'>0</span>  || <span id="losses">0</span> || <span id="draws">0</span>
+        <p class="record">
+            ...<span id='wins'>0</span>.....||.....<span id="losses">0</span>.....||.....<span id="draws">0</span>...
         </p>
     </div>
 
-    <div id="first-game" class="hidden">
+    <div id="first-game" class="hidden images">
         <span>
             <img height=200px width=200px id="my-throw" src="">
         </span>
@@ -75,7 +75,12 @@
         </span>
     </div>
 
+    <div class="images">
+        <span>Last Move</span>
+        <span>Computer Move</span>
+        <span>Result</span>
 
+    </div>
     <script src="app.js" type="module"></script>
 </body>
 
