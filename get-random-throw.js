@@ -1,6 +1,8 @@
 export const getRandomThrow = () => {
     // generate random interger 0-2
     const result = getRandomInt(0, 3);
+
+    // return rock, paper, or scissors as a string
     switch (result) {
         case 0:
             return 'rock';
