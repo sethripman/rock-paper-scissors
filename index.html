@@ -11,7 +11,13 @@
 
 <body>
     <h1>Fancy a game, stranger?</h1>
-    <p>These are the instructions for the game! look at this unordered list of possible wins!</p>
+    <p> Remember!
+        <ul>
+            <li>Paper beats Rock</li>
+            <li>Rock beats Scissors</li>
+            <li>Scissors beats Paper</li>
+        </ul>
+    </p>
 
     <div class="moves">
         <label>
@@ -20,7 +26,8 @@
         <input
         name="move"
         value="rock"
-        type="radio">
+        type="radio"
+        checked>
         </label>
 
         <label>
@@ -47,9 +54,19 @@
 
     <div id="win-record" class="hidden">
         Here is my win loss draw record
+        <p>
+            W||L||D
+        </p>
+        <p>
+            <span id='wins'>0</span>  || <span id="losses">0</span> || <span id="draws">0</span>
+        </p>
     </div>
 
-    <div id="last-game" class="hidden">
+    <div id="first-game" class="hidden">
+
+
+
+        
         Opponent's image
         Result image for win, loss, draw starts hidden
     </div>
