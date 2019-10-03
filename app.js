@@ -3,11 +3,18 @@ import { checkResult } from './check-result.js';
 
 // initialize DOM elements and fetch
 const playButton = document.getElementById('my-button');
-let recordDiv = document.getElementById('win-record');
-let firstGameDiv = document.getElementById('first-game');
+const recordDiv = document.getElementById('win-record');
+const firstGameDiv = document.getElementById('first-game');
 const winSpan = document.getElementById('wins');
 const lossSpan = document.getElementById('losses');
 const drawSpan = document.getElementById('draws');
+
+/*
+const myImage = document.getElementById('my-throw');
+const theirImage = document.getElementById('their-throw');
+const resultImage = document.getElementById('result-image');
+*/
+
 let winCount = 0;
 let lossCount = 0;
 let drawCount = 0;
@@ -50,7 +57,18 @@ const updateSpans = () => {
     drawSpan.textContent = drawCount;
 };
 
-// Update image display
+// Update mythrow image display
+const updateMyThrowImage = (userSelectedMove) => {
+    switch (userSelectedMove) {
+        case 'rock':
+            
+            break;
+        case 'paper':
+            break;
+        case 'scissors':
+            break;
+    }
+};
 
 const firstMoveDisplay = () => {
     recordDiv.classList.remove('hidden');
