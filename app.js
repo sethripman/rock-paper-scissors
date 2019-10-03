@@ -25,7 +25,6 @@ const startGame = () => {
     const userSelectedMove = selectedRadioButton.value;
     const compThrow = getRandomThrow();
     const gameOutcome = checkResult(userSelectedMove, compThrow);
-    firstMoveDisplay();
 
     // switch statement for incrementing game record
     switch (gameOutcome) {
@@ -42,6 +41,10 @@ const startGame = () => {
 
     // update displays
     updateSpans();
+    updateMyThrowImage(userSelectedMove);
+    updatetheirThrowImage(compThrow);
+    updateResultImage(gameOutcome);
+    firstMoveDisplay();
 
     // console logging outcome
     console.log(gameOutcome);
@@ -61,11 +64,43 @@ const updateSpans = () => {
 const updateMyThrowImage = (userSelectedMove) => {
     switch (userSelectedMove) {
         case 'rock':
-            
+            document.getElementById('my-throw').src = 'https://images.freeimages.com/images/large-previews/a62/ching-chong-cha-2-1440527.jpg';
             break;
         case 'paper':
+            document.getElementById('my-throw').src = 'https://images.freeimages.com/images/large-previews/f1f/ching-chong-cha-3-1440520.jpg';
             break;
         case 'scissors':
+            document.getElementById('my-throw').src = 'https://images.freeimages.com/images/large-previews/c09/ching-chong-cha-1-1440531.jpg';
+            break;
+    }
+};
+
+// Update theirthrow image display
+const updatetheirThrowImage = (compThrow) => {
+    switch (compThrow) {
+        case 'rock':
+            document.getElementById('their-throw').src = 'https://images.freeimages.com/images/large-previews/a62/ching-chong-cha-2-1440527.jpg';
+            break;
+        case 'paper':
+            document.getElementById('their-throw').src = 'https://images.freeimages.com/images/large-previews/f1f/ching-chong-cha-3-1440520.jpg';
+            break;
+        case 'scissors':
+            document.getElementById('their-throw').src = 'https://images.freeimages.com/images/large-previews/c09/ching-chong-cha-1-1440531.jpg';
+            break;
+    }
+};
+
+// Update theirthrow image display
+const updateResultImage = (gameOutcome) => {
+    switch (gameOutcome) {
+        case 'win':
+            document.getElementById('result-image').src = 'https://images.freeimages.com/images/large-previews/079/hands-thumbsup-1520319.jpg';
+            break;
+        case 'lose':
+            document.getElementById('result-image').src = 'https://images.freeimages.com/images/large-previews/f65/hands-thumbsdown-1520327.jpg';
+            break;
+        case 'draw':
+            document.getElementById('result-image').src = 'https://images.freeimages.com/images/large-previews/8b0/balance-1172800.jpg';
             break;
     }
 };
