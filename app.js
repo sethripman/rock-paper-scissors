@@ -24,16 +24,16 @@ let currentBet = 1;
 
 // Game logic for each play
 const startGame = () => {
-    getBet();
-    console.log(currentBet);
-    console.log(validateBet());
-    if (!validateBet(betSize)) return;
-
+    
     const selectedRadioButton = document.querySelector('input:checked');
     const userSelectedMove = selectedRadioButton.value;
     const compThrow = getRandomThrow();
     const gameOutcome = checkResult(userSelectedMove, compThrow);
-
+    
+    getBet();
+    console.log(currentBet);
+    console.log(validateBet(currentBet));
+    if (!(validateBet(currentBet))) return;
     // switch statement for incrementing game record
     switch (gameOutcome) {
         case 'win':
@@ -46,6 +46,8 @@ const startGame = () => {
             drawCount++;
             break;
     }
+    updateBank(gameOutcome);
+    console.log(bank);
 
     // update displays
     updateSpans();
@@ -114,13 +116,19 @@ const getBet = () => {
 };
 
 //validate bet size
-
 const validateBet = (thing) => {
     return (thing <= bank);
 };
 
 //Update bank
-
+const updateBank = (gameOutcome) => {
+    if (gameOutcome === 'win') {
+        bank = parseInt(bank, 10) + parseInt(currentBet, 10);
+    }
+    else if (gameOutcome === 'lose') {
+        bank = parseInt(bank, 10) - parseInt(currentBet, 10);
+    }
+};
 
 //game over when broke
 
