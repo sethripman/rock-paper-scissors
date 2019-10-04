@@ -1,8 +1,22 @@
 // IMPORT MODULES under test here:
 // import example from '../src/example.js';
 import { checkResult } from '../check-result.js';
+import gameOver from '../game-over.js';
 
 const test = QUnit.test;
+
+test('should return nothing you are flat broke string with imported variables', function(assert) {
+    //Arrange
+    // Set up your parameters and expectations
+    const bank = 0;
+    const bankSpan = '';
+    //Act 
+    // Call the function you're testing and set the result to a const
+    const result = gameOver(bank, bankSpan);
+    //Assert
+    // Make assertions about what is expected valid result
+    assert.equal(result, 'nothing! You are flat broke and the game is over.');
+});
 
 test('should return win if paper played against rock', function(assert) {
     //Arrange

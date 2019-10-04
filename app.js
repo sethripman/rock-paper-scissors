@@ -33,7 +33,10 @@ const startGame = () => {
     getBet();
     console.log(currentBet);
     console.log(validateBet(currentBet));
-    if (!(validateBet(currentBet))) return;
+    if (!(validateBet(currentBet))) {
+        gameOver();
+        return;
+    };
     // switch statement for incrementing game record
     switch (gameOutcome) {
         case 'win':
@@ -63,6 +66,7 @@ const updateSpans = () => {
     winSpan.textContent = winCount;
     lossSpan.textContent = lossCount;
     drawSpan.textContent = drawCount;
+    bankSpan.textContent = bank;
 };
 
 // Update mythrow image display
@@ -112,7 +116,7 @@ const updateResultImage = (gameOutcome) => {
 
 //Betting value 
 const getBet = () => {
-    currentBet = betSize.value;
+    currentBet = parseInt(betSize.value, 10);
 };
 
 //validate bet size
@@ -123,14 +127,20 @@ const validateBet = (thing) => {
 //Update bank
 const updateBank = (gameOutcome) => {
     if (gameOutcome === 'win') {
-        bank = parseInt(bank, 10) + parseInt(currentBet, 10);
+        bank += currentBet;
     }
     else if (gameOutcome === 'lose') {
-        bank = parseInt(bank, 10) - parseInt(currentBet, 10);
+        bank -= currentBet;
     }
 };
 
 //game over when broke
+const gameOver = () => {
+    if (!bank) {
+        firstGameDiv.classList.add('hidden');
+        bankSpan.textContent = 'nothing! You are flat broke and the game is over.';
+    };
+};
 
 const firstMoveDisplay = () => {
     recordDiv.classList.remove('hidden');
