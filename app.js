@@ -8,7 +8,8 @@ const firstGameDiv = document.getElementById('first-game');
 const winSpan = document.getElementById('wins');
 const lossSpan = document.getElementById('losses');
 const drawSpan = document.getElementById('draws');
-
+const bankSpan = document.getElementById('bank');
+const betSize = document.getElementById('bet-value');
 /*
 const myImage = document.getElementById('my-throw');
 const theirImage = document.getElementById('their-throw');
@@ -18,9 +19,16 @@ const resultImage = document.getElementById('result-image');
 let winCount = 0;
 let lossCount = 0;
 let drawCount = 0;
+let bank = 20;
+let currentBet = 1;
 
 // Game logic for each play
 const startGame = () => {
+    getBet();
+    console.log(currentBet);
+    console.log(validateBet());
+    if (!validateBet(betSize)) return;
+
     const selectedRadioButton = document.querySelector('input:checked');
     const userSelectedMove = selectedRadioButton.value;
     const compThrow = getRandomThrow();
@@ -45,11 +53,6 @@ const startGame = () => {
     updatetheirThrowImage(compThrow);
     updateResultImage(gameOutcome);
     firstMoveDisplay();
-
-    // console logging outcome
-    console.log(gameOutcome);
-    console.log('You played ' + userSelectedMove);
-    console.log('Opponent played ' + compThrow);
 };
 
 
@@ -104,6 +107,22 @@ const updateResultImage = (gameOutcome) => {
             break;
     }
 };
+
+//Betting value 
+const getBet = () => {
+    currentBet = betSize.value;
+};
+
+//validate bet size
+
+const validateBet = (thing) => {
+    return (thing <= bank);
+};
+
+//Update bank
+
+
+//game over when broke
 
 const firstMoveDisplay = () => {
     recordDiv.classList.remove('hidden');
