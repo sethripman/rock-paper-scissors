@@ -8,7 +8,8 @@ const firstGameDiv = document.getElementById('first-game');
 const winSpan = document.getElementById('wins');
 const lossSpan = document.getElementById('losses');
 const drawSpan = document.getElementById('draws');
-
+const bankSpan = document.getElementById('bank');
+const betSize = document.getElementById('bet-value');
 /*
 const myImage = document.getElementById('my-throw');
 const theirImage = document.getElementById('their-throw');
@@ -18,14 +19,24 @@ const resultImage = document.getElementById('result-image');
 let winCount = 0;
 let lossCount = 0;
 let drawCount = 0;
+let bank = 20;
+let currentBet = 1;
 
 // Game logic for each play
 const startGame = () => {
+    
     const selectedRadioButton = document.querySelector('input:checked');
     const userSelectedMove = selectedRadioButton.value;
     const compThrow = getRandomThrow();
     const gameOutcome = checkResult(userSelectedMove, compThrow);
-
+    
+    getBet();
+    console.log(currentBet);
+    console.log(validateBet(currentBet));
+    if (!(validateBet(currentBet))) {
+        gameOver();
+        return;
+    };
     // switch statement for incrementing game record
     switch (gameOutcome) {
         case 'win':
@@ -38,6 +49,8 @@ const startGame = () => {
             drawCount++;
             break;
     }
+    updateBank(gameOutcome);
+    console.log(bank);
 
     // update displays
     updateSpans();
@@ -45,11 +58,6 @@ const startGame = () => {
     updatetheirThrowImage(compThrow);
     updateResultImage(gameOutcome);
     firstMoveDisplay();
-
-    // console logging outcome
-    console.log(gameOutcome);
-    console.log('You played ' + userSelectedMove);
-    console.log('Opponent played ' + compThrow);
 };
 
 
@@ -58,6 +66,7 @@ const updateSpans = () => {
     winSpan.textContent = winCount;
     lossSpan.textContent = lossCount;
     drawSpan.textContent = drawCount;
+    bankSpan.textContent = bank;
 };
 
 // Update mythrow image display
@@ -103,6 +112,34 @@ const updateResultImage = (gameOutcome) => {
             document.getElementById('result-image').src = 'https://images.freeimages.com/images/large-previews/8b0/balance-1172800.jpg';
             break;
     }
+};
+
+//Betting value 
+const getBet = () => {
+    currentBet = parseInt(betSize.value, 10);
+};
+
+//validate bet size
+const validateBet = (thing) => {
+    return (thing <= bank);
+};
+
+//Update bank
+const updateBank = (gameOutcome) => {
+    if (gameOutcome === 'win') {
+        bank += currentBet;
+    }
+    else if (gameOutcome === 'lose') {
+        bank -= currentBet;
+    }
+};
+
+//game over when broke
+const gameOver = () => {
+    if (!bank) {
+        firstGameDiv.classList.add('hidden');
+        bankSpan.textContent = 'nothing! You are flat broke and the game is over.';
+    };
 };
 
 const firstMoveDisplay = () => {
