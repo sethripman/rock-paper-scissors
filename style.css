@@ -1,0 +1,43 @@
+.hidden {
+    display: none;
+}
+
+.instructions {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    border: 2px black dotted;
+    padding: 40px;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 30px;
+    background-color: steelblue;
+}
+
+.introimage {
+    border: 12px black dashed;
+    background: pink;
+}
+
+.record {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.images {
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+}
+
+.radio-image {
+    height: 150px;
+    width: 150px;
+    display: flex;
+    justify-content: space-evenly;
+}

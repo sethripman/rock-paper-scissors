@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Rock Paper Scissors Game</title>
+</head>
+
+<body>
+    <h1 class="center"><u>Fancy a game, stranger?</u></h1>
+    <p class="center introimage"><img size=300px height=300px src="https://images.freeimages.com/images/large-previews/336/rock-paper-scissors-1238146.jpg"></p>
+    <p class="instructions"> Remember!
+        <ul>
+            <li><b>Paper</b> beats <b>Rock</b></li>
+            <li><b>Rock</b> beats <b>Scissors</b></li>
+            <li><b>Scissors</b> beats <b>Paper</b></li>
+        </ul>
+    </p>
+    <div>
+        <p>You Have <span id = 'bank'>20</span>$</p>
+        <p><input id= 'bet-value' type='number' min='1' max='25' value='1'></p>
+    </div>
+    <div class="moves instructions">
+        <label>
+        <img src="https://images.freeimages.com/images/large-previews/a62/ching-chong-cha-2-1440527.jpg" class="radio-image">
+        <input
+        name="move"
+        value="rock"
+        type="radio"
+        class="hidden"
+        checked>
+        </label>
+
+        <label>
+        <img src="https://images.freeimages.com/images/large-previews/f1f/ching-chong-cha-3-1440520.jpg" class="radio-image">
+        <input
+        name="move"
+        value="paper"
+        type="radio"
+        class="hidden">
+        </label>
+        <label>
+        <img src="https://images.freeimages.com/images/large-previews/c09/ching-chong-cha-1-1440531.jpg" class="radio-image">
+        <input
+        name="move"
+        value="scissors"
+        type="radio"
+        class="hidden">
+        </label>
+    </div>
+
+    <div class="center">
+        <button id="my-button">Play!</button>
+    </div>
+
+    <div id="win-record" class="hidden">
+        <p class="record">
+            Wins || Losses || Draws <br>
+        </p>
+        <p class="record">
+            ...<span id='wins'>0</span>.....||.....<span id="losses">0</span>.....||.....<span id="draws">0</span>...
+        </p>
+    </div>
+
+    <div id="first-game" class="hidden images">
+        <span>
+            <img height=200px width=200px id="my-throw" src="">
+        </span>
+        <span>
+            <img height=200px width=200px id="their-throw" src="">
+        </span>
+        <span>
+            <img height=200px width=200px id="result-image" src="">
+        </span>
+    </div>
+
+    <div class="images">
+        <span>Last Move</span>
+        <span>Computer Move</span>
+        <span>Result</span>
+
+    </div>
+    <script src="app.js" type="module"></script>
+</body>
+
+</html>

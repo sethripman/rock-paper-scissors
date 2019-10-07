@@ -1,0 +1,1 @@
+import './rockpaperscissor.test.js';
